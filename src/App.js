@@ -1,16 +1,68 @@
 import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import search_icon from './Images/search-icon.png'
+import cloud from './Images/Cloud.png'
+import humidity from './Images/humidity.png'
+import mist from './Images/mist.png'
+import night from './Images/night.png'
+import rain from './Images/Rain.png'
+import snow from './Images/snow.png'
+import sunny from './Images/Sunny.png'
+import thunder from './Images/thunder.png'
+import wind from './Images/wind.png'
 import { useState } from 'react';
 
 
 function App() {
 
-  const [input, setinput] = useState("");
+let api_key="a2bc927c676538011eb4094ac7c1e663";
 
-  const inptOnChange = (event) => {
-    setinput(event.target.value);
+const [w_icon,setw_icon]=useState(sunny);
+
+const searchbtn= async () =>{
+  const element=document.getElementsByClassName("cityInpt")
+  let inptvalue=(element[0].value);
+
+  if(inptvalue===""){
+    return 0;
+  }
+  let api_url=`https://api.openweathermap.org/data/2.5/weather?q=${inptvalue}&units=Metric&appid=${api_key}`;
+
+  let response= await fetch(api_url);
+  let data=await response.json();
+
+ const temp_=document.getElementsByClassName("temp_");
+ const city_=document.getElementsByClassName("city_");
+ const humidity_perc=document.getElementsByClassName("humidity_perc");
+ const wind_perc=document.getElementsByClassName("wind_perc");
+
+  city_[0].innerHTML=data.name;
+  temp_[0].innerHTML=data.main.temp+"°c";
+  humidity_perc[0].innerHTML=data.main.humidity+" %";
+  wind_perc[0].innerHTML=data.wind.speed+" Km/hr";
+
+  console.log(data.weather[0].icon)
+  if(data.weather[0].icon==="01d"){
+    setw_icon(sunny)
+  }else if(data.weather[0].icon==="01n"){
+    setw_icon(night)
+  }else if(data.weather[0].icon==="02d" || data.weather[0].icon==="02n" || data.weather[0].icon==="03d"|| data.weather[0].icon==="03n"|| data.weather[0].icon==="04d"|| data.weather[0].icon==="04n"){
+    setw_icon(cloud)
+  }else if(data.weather[0].icon==="09d" || data.weather[0].icon==="09n" || data.weather[0].icon==="10d"|| data.weather[0].icon==="10n"){
+    setw_icon(rain)
+  }else if(data.weather[0].icon==="11d" || data.weather[0].icon==="11n"){
+    setw_icon(thunder)
+  }else if(data.weather[0].icon==="13d" || data.weather[0].icon==="13n"){
+    setw_icon(snow)
+  }else if(data.weather[0].icon==="50d" || data.weather[0].icon==="50n"){
+    setw_icon(mist)
+  }else{
+    setw_icon(sunny)
   }
 
+
+
+}
 
   return (
     <>
@@ -18,13 +70,61 @@ function App() {
         <h1>Weather App</h1>
       </div>
       <div className='card_box'>
+        {/* input bar starts */}
         <div className='inputDiv'>
-          <input type='search' onChange={inptOnChange} />
+          <input type='text' className='cityInpt'/>
+          <img src={search_icon} alt='searchimg' onClick={searchbtn}></img>
         </div>
+        {/* input bar ends */}
 
-        <div className='location_name d-flex align-items-center justify-content-center text-capitalize'>
-          <h1>{input}</h1>
+        {/* weather image starts */}
+        <div className='imgDiv'>
+          <img src={w_icon} alt="cloudimg" />
         </div>
+        {/* weather image ends */}
+
+        {/* Temp and city name start */}
+        <div className='temp_city d-flex flex-column  align-items-center text-light'>
+          <div className='temp'>
+            <p className='temp_'>21.4 cal</p>
+          </div>
+          <div className='city'>
+            <p className='city_'>New Delhi</p>
+          </div>
+        </div>
+        {/* Temp and city name ends */}
+
+        {/* humidity and wind start */}
+
+        <div className='hum_wind_Div d-flex'>
+
+          <div className='hum_element d-flex'>
+            <img className='hum_img' src={humidity} alt="" />
+            <div className='data d-flex flex-column align-items-center justify-content-center'>
+              <div className='humidity_perc'>
+                64%
+              </div>
+              <div className='humidity_text'>
+                Humidity
+              </div>
+            </div>
+          </div>
+
+          <div className='wind_element d-flex'>
+            <img className='wind_img' src={wind} alt="" />
+            <div className='data d-flex flex-column align-items-center justify-content-center'>
+              <div className='wind_perc'>
+                18 km/hr
+              </div>
+              <div className='wind_text'>
+                Wind Speed
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* humidity and wind ends */}
+
+
 
 
       </div>

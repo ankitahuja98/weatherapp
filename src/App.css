@@ -49,7 +49,7 @@
   border-radius: 10px;
   width: 30rem;
   height: 35rem;
-  background-color: rgb(111 165 240 / 83%);
+  background-image: linear-gradient(180deg, #130754 0%, #3b2f80 100%);
   border: 2px solid black;
 }
 /* card Input start */
@@ -59,30 +59,90 @@
   justify-content: center;
   align-items: center;
   height: 6rem;
-  width: 30rem;
 }
 .inputDiv input {
-  border-radius: 6px;
+  border-radius: 36px;
+  padding-left: 25px;
+  padding-right: 25px;
+  width: 23rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+}
+.inputDiv img {
+  cursor: pointer;
+  width: 3rem;
+  height: auto;
+  margin-left: 1rem;
+  background-color: white;
+  border-radius: 23px;
+  padding: 10px;
 }
 /* card Input ends */
 
-/* card output start */
-.cardbox_in {
-  margin-top: 18%;
-  width: 30rem;
-  height: 23rem;
-  border: 5px solid red;
+/* weather img start */
+.imgDiv {
+  display: flex;
+  justify-content: center;
+  height: 15rem;
+}
+.imgDiv img {
+  width: 15rem;
+  height: 14rem;
+}
+/* weather img ends */
+
+/* Temp and city name starts */
+.temp_city {
+  position: relative;
+  bottom: 2rem;
+}
+.temp p {
+  font-family: "Playfair Display", serif;
+  font-size: 4rem;
+  font-weight: 600;
+  margin-bottom: 0rem !important;
+}
+.city p {
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  font-weight: 400;
+}
+.city {
+  height: 4rem;
 }
 
-.location_name {
-  height: 13rem;
-  overflow: hidden;
-  /* overflow-y: scroll; */
-  /* overflow-x: scroll; */
+/* Temp and city name ends */
+
+/* humidity and wind div start */
+.hum_wind_Div {
+  position: relative;
+  bottom: 1rem;
 }
-.location_name h1 {
-  font-size: 3rem;
-  font-weight: 600;
-  color: black;
+.hum_img {
+  width: 3rem;
+  height: 3rem;
+  margin-right: 0.5rem;
+  position: relative;
+  top: 0.5rem;
 }
-/* card output ends */
+.wind_img {
+  width: 4rem;
+  height: auto;
+  margin-right: 0.5rem;
+}
+.hum_element {
+  filter: invert(100);
+  position: relative;
+  left: 1rem;
+}
+.wind_element {
+  filter: invert(100);
+  position: relative;
+  left: 11rem;
+}
+.data {
+  font-weight: 700;
+}
+/* humidity and wind div end */
