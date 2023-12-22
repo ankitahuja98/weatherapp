@@ -81,7 +81,7 @@ function App() {
       <div className='card_box'>
         {/* input bar starts */}
         <div className='inputDiv'>
-          <input type='text' className='cityInpt' />
+          <input type='text' placeholder='Enter the City' className='cityInpt' />
           <img src={search_icon} alt='searchimg' onClick={searchbtn}></img>
         </div>
         {/* input bar ends */}
