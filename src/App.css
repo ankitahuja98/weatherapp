@@ -52,6 +52,10 @@
   background-image: linear-gradient(180deg, #130754 0%, #3b2f80 100%);
   border: 2px solid black;
 }
+hr {
+  position: relative;
+  bottom: 20px;
+}
 /* card Input start */
 .inputDiv {
   font-size: 2rem;
@@ -110,15 +114,30 @@
   font-weight: 400;
 }
 .city {
-  height: 4rem;
+  position: relative;
+  top: 1.2rem;
+  height: 3rem;
 }
 
 /* Temp and city name ends */
 
+/* max min starts */
+.max_min{
+  position: relative;
+  bottom: 69px;
+}
+.max_temp_text, .min_temp_text{
+  margin-right: 6px;
+}
+.max_temp{
+  margin-right: 80px;
+}
+/* max min ends */
+
 /* humidity and wind div start */
 .hum_wind_Div {
   position: relative;
-  bottom: 1rem;
+  bottom: 63px;
 }
 .hum_img {
   width: 3rem;
