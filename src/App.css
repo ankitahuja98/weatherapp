@@ -51,6 +51,10 @@
   height: 35rem;
   background-image: linear-gradient(180deg, #130754 0%, #3b2f80 100%);
   border: 2px solid black;
+  box-shadow: 4px 4px 8px #5b5b5b;
+}
+.main_heading{
+  font-family: 'Ubuntu', sans-serif;
 }
 hr {
   position: relative;
@@ -122,14 +126,15 @@ hr {
 /* Temp and city name ends */
 
 /* max min starts */
-.max_min{
+.max_min {
   position: relative;
   bottom: 69px;
 }
-.max_temp_text, .min_temp_text{
+.max_temp_text,
+.min_temp_text {
   margin-right: 6px;
 }
-.max_temp{
+.max_temp {
   margin-right: 80px;
 }
 /* max min ends */
@@ -138,6 +143,7 @@ hr {
 .hum_wind_Div {
   position: relative;
   bottom: 63px;
+  display: flex;
 }
 .hum_img {
   width: 3rem;
@@ -165,3 +171,111 @@ hr {
   font-weight: 700;
 }
 /* humidity and wind div end */
+
+@media (max-width: 480px) {
+  .card_box {
+    width: 27rem;
+  }
+  .inputDiv input {
+    width: 20rem;
+  }
+  .wind_element {
+    position: relative;
+    left: 8rem;
+  }
+}
+@media (max-width: 432px) {
+  .card_box {
+    width: 24rem;
+  }
+  .inputDiv input {
+    width: 16rem;
+  }
+  .wind_element {
+    position: relative;
+    left: 5rem;
+  }
+}
+@media (max-width: 390px) {
+  .card_box {
+    width: 20rem;
+    height: 39rem;
+  }
+  .inputDiv input {
+    width: 13rem;
+    font-size: 21px;
+  }
+  .inputDiv img {
+    width: 36px;
+    height: auto;
+  }
+  .imgDiv img {
+    width: 10rem;
+    height: 10rem;
+  }
+  .imgDiv {
+    height: 12rem;
+  }
+  .hum_wind_Div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .wind_element {
+    position: relative;
+    left: 4px;
+  }
+  .hum_element {
+    position: relative;
+    left: 0px;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+  }
+  .max_temp {
+    margin-right: 25px;
+  }
+}
+@media (max-width: 320px) {
+  .card_box {
+    width: 16rem;
+    height: 39rem;
+  }
+  .inputDiv input {
+    width: 11rem;
+    font-size: 20px;
+  }
+  .inputDiv img {
+    width: 35px;
+    height: auto;
+  }
+  .imgDiv img {
+    width: 10rem;
+    height: 10rem;
+  }
+  .imgDiv {
+    height: 12rem;
+  }
+  .hum_wind_Div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .wind_element {
+    position: relative;
+    left: 4px;
+  }
+  .hum_element {
+    position: relative;
+    left: 0px;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+  }
+  .max_temp {
+    margin-right: 15px;
+  }
+  .max_min {
+    font-size: 13px ;
+  }
+}

@@ -76,7 +76,7 @@ function App() {
   return (
     <>
       <div className='mb-5 pt-3 text-decoration-underline'>
-        <h1>Weather App</h1>
+        <h1 className='main_heading'>Weather App</h1>
       </div>
       <div className='card_box'>
         {/* input bar starts */}
@@ -133,7 +133,7 @@ function App() {
 
         {/* humidity and wind start */}
 
-        <div className='hum_wind_Div d-flex'>
+        <div className='hum_wind_Div'>
 
           <div className='hum_element d-flex'>
             <img className='hum_img' src={humidity} alt="" />
