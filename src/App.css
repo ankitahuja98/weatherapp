@@ -43,6 +43,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 2rem;
 }
 
 .card_box {
@@ -53,8 +54,8 @@
   border: 2px solid black;
   box-shadow: 4px 4px 8px #5b5b5b;
 }
-.main_heading{
-  font-family: 'Ubuntu', sans-serif;
+.main_heading {
+  font-family: "Ubuntu", sans-serif;
 }
 hr {
   position: relative;
@@ -276,6 +277,6 @@ hr {
     margin-right: 15px;
   }
   .max_min {
-    font-size: 13px ;
+    font-size: 13px;
   }
 }
