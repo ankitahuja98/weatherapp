@@ -23,6 +23,8 @@ function App() {
   const searchbtn = async () => {
     const element = document.getElementsByClassName("cityInpt")
     let inptvalue = (element[0].value);
+    inptvalue = inptvalue.charAt(0).toUpperCase() + inptvalue.slice(1);
+    console.log(inptvalue)
 
     if (inptvalue === "") {
       return 0;
@@ -34,44 +36,44 @@ function App() {
 
     const temp_ = document.getElementsByClassName("temp_");
     const city_ = document.getElementsByClassName("city_");
-    const country=document.getElementsByClassName("country");
+    const country = document.getElementsByClassName("country");
     const humidity_perc = document.getElementsByClassName("humidity_perc");
     const wind_perc = document.getElementsByClassName("wind_perc");
-    const max_temp=document.getElementsByClassName("max_temp");
-    const min_temp=document.getElementsByClassName("min_temp");
+    const max_temp = document.getElementsByClassName("max_temp");
+    const min_temp = document.getElementsByClassName("min_temp");
 
-
-    city_[0].innerHTML = data.name + ",";
-    country[0].innerHTML = "&nbsp;" +data.sys.country;
-    temp_[0].innerHTML = data.main.temp + "°c";
-    humidity_perc[0].innerHTML = data.main.humidity + " %";
-    wind_perc[0].innerHTML = data.wind.speed + " Km/hr";
-    max_temp[0].innerHTML=data.main.temp_max + "°c";
-    min_temp[0].innerHTML=data.main.temp_min + "°c";
-
-
-
-    if (data.weather[0].icon === "01d") {
-      setw_icon(sunny)
-    } else if (data.weather[0].icon === "01n") {
-      setw_icon(night)
-    } else if (data.weather[0].icon === "02d" || data.weather[0].icon === "02n" || data.weather[0].icon === "03d" || data.weather[0].icon === "03n" || data.weather[0].icon === "04d" || data.weather[0].icon === "04n") {
-      setw_icon(cloud)
-    } else if (data.weather[0].icon === "09d" || data.weather[0].icon === "09n" || data.weather[0].icon === "10d" || data.weather[0].icon === "10n") {
-      setw_icon(rain)
-    } else if (data.weather[0].icon === "11d" || data.weather[0].icon === "11n") {
-      setw_icon(thunder)
-    } else if (data.weather[0].icon === "13d" || data.weather[0].icon === "13n") {
-      setw_icon(snow)
-    } else if (data.weather[0].icon === "50d" || data.weather[0].icon === "50n") {
-      setw_icon(mist)
+    if (inptvalue !== data.name) {
+      alert("No Data Found, Please try with another city")
     } else {
-      setw_icon(sunny)
+      city_[0].innerHTML = data.name + ",";
+      country[0].innerHTML = "&nbsp;" + data.sys.country;
+      temp_[0].innerHTML = data.main.temp + "°c";
+      humidity_perc[0].innerHTML = data.main.humidity + " %";
+      wind_perc[0].innerHTML = data.wind.speed + " Km/hr";
+      max_temp[0].innerHTML = data.main.temp_max + "°c";
+      min_temp[0].innerHTML = data.main.temp_min + "°c";
+
+
+      if (data.weather[0].icon === "01d") {
+        setw_icon(sunny)
+      } else if (data.weather[0].icon === "01n") {
+        setw_icon(night)
+      } else if (data.weather[0].icon === "02d" || data.weather[0].icon === "02n" || data.weather[0].icon === "03d" || data.weather[0].icon === "03n" || data.weather[0].icon === "04d" || data.weather[0].icon === "04n") {
+        setw_icon(cloud)
+      } else if (data.weather[0].icon === "09d" || data.weather[0].icon === "09n" || data.weather[0].icon === "10d" || data.weather[0].icon === "10n") {
+        setw_icon(rain)
+      } else if (data.weather[0].icon === "11d" || data.weather[0].icon === "11n") {
+        setw_icon(thunder)
+      } else if (data.weather[0].icon === "13d" || data.weather[0].icon === "13n") {
+        setw_icon(snow)
+      } else if (data.weather[0].icon === "50d" || data.weather[0].icon === "50n") {
+        setw_icon(mist)
+      } else {
+        setw_icon(sunny)
+      }
     }
-
-
-
   }
+
 
   return (
     <>
@@ -94,7 +96,7 @@ function App() {
 
         {/* Temp and city name start */}
         <div className='temp_city d-flex flex-column  align-items-center text-light'>
-        
+
           <div className='city d-flex'>
             <p className='city_'>------,</p>
             <p className='country'>&nbsp; ---</p>
